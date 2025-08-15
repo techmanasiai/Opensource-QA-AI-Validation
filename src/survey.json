@@ -1,0 +1,93 @@
+{
+  "surveyTitle": "Customer Feedback Survey",
+  "surveyDescription": "Thank you for taking the time to provide us with your valuable feedback.",
+  "startScreen": {
+    "title": "Welcome!",
+    "description": "This survey will take about 5 minutes to complete.",
+    "buttonText": "Start Survey"
+  },
+  "steps": [
+    {
+      "stepId": "step1",
+      "title": "Your Information",
+      "fields": [
+        {
+          "fieldId": "name",
+          "type": "text",
+          "label": "What is your full name?",
+          "placeholder": "e.g., Jane Doe",
+          "validation": {
+            "required": true,
+            "minLength": 2
+          }
+        },
+        {
+          "fieldId": "email",
+          "type": "text",
+          "label": "What is your email address?",
+          "placeholder": "e.g., jane.doe@example.com",
+          "validation": {
+            "required": true,
+            "pattern": "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"
+          }
+        }
+      ]
+    },
+    {
+      "stepId": "step2",
+      "title": "Your Experience",
+      "fields": [
+        {
+          "fieldId": "rating",
+          "type": "radio",
+          "label": "How would you rate your overall experience?",
+          "options": [
+            { "label": "Excellent", "value": "excellent" },
+            { "label": "Good", "value": "good" },
+            { "label": "Average", "value": "average" },
+            { "label": "Poor", "value": "poor" }
+          ],
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "fieldId": "product",
+          "type": "dropdown",
+          "label": "Which product did you use?",
+          "options": [
+            { "label": "Select a product...", "value": "" },
+            { "label": "Product A", "value": "prod-a" },
+            { "label": "Product B", "value": "prod-b" },
+            { "label": "Product C", "value": "prod-c" }
+          ],
+          "validation": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "stepId": "step3",
+      "title": "Feedback",
+      "fields": [
+        {
+          "fieldId": "comments",
+          "type": "textarea",
+          "label": "Do you have any additional comments or suggestions?",
+          "placeholder": "Your feedback is important to us...",
+          "validation": {
+            "required": false,
+            "maxLength": 500
+          }
+        }
+      ]
+    }
+  ],
+  "endScreen": {
+    "title": "Thank You!",
+    "description": "Your feedback has been recorded. You can now review your answers or submit.",
+    "reviewButtonText": "Review Answers",
+    "submitButtonText": "Submit"
+  }
+}
