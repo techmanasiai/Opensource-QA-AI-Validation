@@ -1,0 +1,31 @@
+{
+  "surveyTitle": "My Test Survey",
+  "surveyDescription": "This is a test to verify the build script's argument handling.",
+  "startScreen": {
+    "title": "Test Start",
+    "description": "Click to begin the test.",
+    "buttonText": "Begin Test"
+  },
+  "steps": [
+    {
+      "stepId": "test-step",
+      "title": "Test Question",
+      "fields": [
+        {
+          "fieldId": "test-field",
+          "type": "text",
+          "label": "Did the test work?",
+          "placeholder": "Yes/No",
+          "validation": {
+            "required": true
+          }
+        }
+      ]
+    }
+  ],
+  "endScreen": {
+    "title": "Test Complete",
+    "description": "The test has finished.",
+    "submitButtonText": "Submit Test"
+  }
+}
