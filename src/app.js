@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         startButton.addEventListener('click', handleStart);
         nextButton.addEventListener('click', handleNext);
         backButton.addEventListener('click', handleBack);
+        reviewButton.addEventListener('click', handleReview);
     }
 
     /**
@@ -312,7 +313,15 @@ document.addEventListener('DOMContentLoaded', () => {
         summaryContainer.appendChild(summaryList);
 
         // TODO: Implement final submission logic for the submitButton
-        // TODO: Implement logic for reviewButton to go back to a specific step
+    }
+
+    /**
+     * Handles the review button click, taking the user back to the first step.
+     */
+    function handleReview() {
+        currentStepIndex = 0;
+        showScreen('survey-screen');
+        renderStep(currentStepIndex);
     }
 
     // Initial load
