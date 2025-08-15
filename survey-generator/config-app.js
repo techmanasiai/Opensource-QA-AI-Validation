@@ -5,6 +5,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let stepCounter = 0;
 
+    /**
+     * Sanitizes a string to be URL-friendly for use in a filename.
+     * @param {string} title The string to sanitize.
+     * @returns {string} The sanitized string.
+     */
+    function sanitizeTitleForFilename(title) {
+        if (!title) {
+            return 'survey'; // Default name if title is empty
+        }
+        return title
+            .toLowerCase()
+            .trim()
+            .replace(/\s+/g, '-') // Replace spaces with -
+            .replace(/[^\w-]+/g, '') // Remove all non-word chars except hyphen
+            .replace(/--+/g, '-'); // Replace multiple - with single -
+    }
+
     addStepBtn.addEventListener('click', () => {
         stepCounter++;
         const stepId = `step${stepCounter}`;
@@ -136,13 +153,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const jsonString = JSON.stringify(surveyData, null, 2);
+        const surveyTitle = document.getElementById('survey-title').value;
+        const filename = `${sanitizeTitleForFilename(surveyTitle)}.json`;
 
         // Create a downloadable blob
         const blob = new Blob([jsonString], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'survey.json';
+        a.download = filename;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
