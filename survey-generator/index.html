@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Survey Generator</h1>
+        <form id="survey-form">
+            <!-- Survey Details -->
+            <fieldset>
+                <legend>Survey Details</legend>
+                <label for="survey-title">Survey Title:</label>
+                <input type="text" id="survey-title" required>
+                <label for="survey-description">Survey Description:</label>
+                <textarea id="survey-description" required></textarea>
+            </fieldset>
+
+            <!-- Start Screen -->
+            <fieldset>
+                <legend>Start Screen</legend>
+                <label for="start-screen-title">Title:</label>
+                <input type="text" id="start-screen-title" value="Welcome!">
+                <label for="start-screen-description">Description:</label>
+                <input type="text" id="start-screen-description" value="This survey will take about 5 minutes to complete.">
+                <label for="start-button-text">Button Text:</label>
+                <input type="text" id="start-button-text" value="Start Survey">
+            </fieldset>
+
+            <!-- Steps Container -->
+            <div id="steps-container">
+                <!-- Steps will be dynamically added here -->
+            </div>
+            <button type="button" id="add-step-btn">Add Step</button>
+
+            <!-- End Screen -->
+            <fieldset>
+                <legend>End Screen</legend>
+                <label for="end-screen-title">Title:</label>
+                <input type="text" id="end-screen-title" value="Thank You!">
+                <label for="end-screen-description">Description:</label>
+                <input type="text" id="end-screen-description" value="Your feedback has been recorded.">
+                <label for="review-button-text">Review Button Text:</label>
+                <input type="text" id="review-button-text" value="Review Answers">
+                <label for="submit-button-text">Submit Button Text:</label>
+                <input type="text" id="submit-button-text" value="Submit">
+            </fieldset>
+
+            <button type="submit" id="generate-json-btn">Generate survey.json</button>
+        </form>
+    </div>
+    <script src="config-app.js"></script>
+</body>
+</html>
