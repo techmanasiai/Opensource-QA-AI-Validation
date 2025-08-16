@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - Static Activity Lifecycle Configuration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Activity Lifecycle Configuration (Static)</h1>
+            <div id="status-indicator"></div>
+        </header>
+
+        <main>
+            <div class="main-content">
+                <form id="lifecycle-form">
+                    <div class="form-section">
+                        <h2>General Information</h2>
+                        <label for="activityName">Activity Name:</label>
+                        <input type="text" id="activityName" name="activityName" required>
+
+                        <label for="lifecycleCode">Lifecycle Code:</label>
+                        <input type="text" id="lifecycleCode" name="lifecycleCode" required>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>Phases</h2>
+                        <div id="phases-container">
+                            <!-- Phases will be added dynamically here -->
+                        </div>
+                        <button type="button" id="add-phase-btn">Add Phase</button>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>Independent Surveys</h2>
+                        <div id="independent-surveys-container">
+                            <!-- Independent surveys will be added here -->
+                        </div>
+                        <button type="button" id="add-independent-survey-btn">Add Independent Survey</button>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>Moderators</h2>
+                        <div id="moderators-container">
+                            <!-- Moderators will be added here -->
+                        </div>
+                        <button type="button" id="add-moderator-btn">Add Moderator</button>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="publish-btn">Generate Publishable JSON</button>
+                    </div>
+                </form>
+
+                <div class="form-section" id="output-section" style="display:none;">
+                    <h2>Generated JSON</h2>
+                    <p>Copy the text below and save it as a new `survey-vX.json` file in the `data` directory.</p>
+                    <textarea id="json-output" readonly></textarea>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Templates for dynamic elements -->
+    <template id="phase-template">
+        <div class="phase-item">
+            <input type="text" class="phase-name" placeholder="Phase Name" required>
+            <button type="button" class="remove-btn">Remove Phase</button>
+            <div class="survey-groups-container"></div>
+            <button type="button" class="add-survey-group-btn">Add Survey Group</button>
+        </div>
+    </template>
+
+    <template id="survey-group-template">
+        <div class="survey-group-item">
+            <input type="text" class="group-name" placeholder="Group Name" required>
+            <button type="button" class="remove-btn">Remove Group</button>
+            <div class="surveys-container"></div>
+            <button type="button" class="add-survey-btn">Add Survey</button>
+        </div>
+    </template>
+
+    <template id="survey-template">
+        <div class="survey-item">
+            <select class="survey-id" required></select>
+            <label><input type="checkbox" class="survey-repeatable"> Repeatable</label>
+            <button type="button" class="remove-btn">Remove</button>
+        </div>
+    </template>
+
+    <template id="moderator-template">
+        <div class="moderator-item">
+            <input type="text" class="moderator-id" placeholder="Moderator ID" required>
+            <button type="button" class="remove-btn">Remove</button>
+        </div>
+    </template>
+
+    <script src="admin.js"></script>
+</body>
+</html>
